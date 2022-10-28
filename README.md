@@ -70,6 +70,23 @@ Example.defaultProps = {
   eyeColor: "example color",
   age: "00",
 };
+
+// Params
+<Route path="/Post/:id" element={<Post />} />;
+import {useParams} from "react-router-dom"
+const params = useParams()
+
+<h1>Post {params.id} </h1>
+
+// Navigate
+import {Navigate,useNavigate} from "react-router-dom"
+const navigate = useNavigate()
+if(x){
+  navigate("/post")
+}
+<Navigate to="/not found">
+
+
 ```
 
 ### Continued development

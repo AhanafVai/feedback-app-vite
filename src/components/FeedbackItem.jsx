@@ -1,17 +1,23 @@
 import React, { useContext } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaEdit, FaTimes } from "react-icons/fa";
 import FeedbackContext from "../context/FeedbackContext";
 import Card from "./shared/Card";
 
 const FeedbackItem = ({ item }) => {
-  const { deleteFeedback } = useContext(FeedbackContext);
-  const reverse = false;
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
+
+  const handleEdit = () => {
+    editFeedback(item);
+  };
 
   return (
-    <Card reverse={reverse}>
+    <Card>
       <div className="num-display">{item.rating}</div>
       <button className="close" onClick={() => deleteFeedback(item.id)}>
         <FaTimes color="purple" />
+      </button>
+      <button onClick={handleEdit} className="edit">
+        <FaEdit color="purple" />
       </button>
       <div className="text-display">{item.text}</div>
     </Card>
